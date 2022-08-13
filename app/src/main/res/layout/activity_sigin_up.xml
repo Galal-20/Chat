@@ -8,7 +8,8 @@
     android:clipToPadding="false"
     android:overScrollMode="never"
     android:padding="@dimen/_24sdp"
-    android:scrollbars="none">
+    android:scrollbars="none"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -62,6 +63,7 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:background="@color/input_background"
             android:hint="@string/name"
+            android:textColorHint="@color/color_hint"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
             android:inputType="text"
@@ -78,6 +80,7 @@
             android:layout_marginTop="@dimen/_16sdp"
             android:background="@color/input_background"
             android:hint="@string/email"
+            android:textColorHint="@color/color_hint"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress"
@@ -94,6 +97,7 @@
             android:layout_marginTop="@dimen/_16sdp"
             android:background="@color/input_background"
             android:hint="@string/password"
+            android:textColorHint="@color/color_hint"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
             android:inputType="textPassword"
@@ -110,6 +114,7 @@
             android:layout_marginTop="@dimen/_16sdp"
             android:background="@color/input_background"
             android:hint="@string/confirm_password"
+            android:textColorHint="@color/color_hint"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="textPassword"
@@ -130,7 +135,7 @@
                 android:layout_height="@dimen/_50sdp"
                 android:id="@+id/Button_Sign_Up"
                 android:text="@string/sign_up"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_13ssp"
                 android:textStyle="bold"
                 app:cornerRadius="@dimen/_8sdp"
@@ -152,9 +157,10 @@
             android:id="@+id/textSignIn"
             android:layout_marginTop="@dimen/_10sdp"
             android:text="@string/sign_in"
-            android:textColor="@color/primary_text"
+            android:textColor="@color/black"
             android:textSize="@dimen/_13ssp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/_15sdp"/>
 
     </LinearLayout>
 
