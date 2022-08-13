@@ -74,7 +74,9 @@ public class MainActivity extends AppCompatActivity {
     private void signOut(){
         showToast("Signing out.....");
         FirebaseFirestore database = FirebaseFirestore.getInstance();
-        DocumentReference documentReference = database.collection(Constants.KEY_COLLECTION_USERS).document(preferenceManger.getString(Constants.KEY_USER_ID));
+        DocumentReference documentReference =
+                database.collection(Constants.KEY_COLLECTION_USERS).document(
+                        preferenceManger.getString(Constants.KEY_USER_ID));
         HashMap<String, Object> updates = new HashMap<>();
         updates.put(Constants.KEY_FCM_TOKEN, FieldValue.delete());
         documentReference.update(updates)
