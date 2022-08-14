@@ -4,6 +4,7 @@ import androidx.activity.OnBackPressedDispatcherOwner;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -11,6 +12,7 @@ import com.example.chat.R;
 import com.example.chat.adapter.UsersAdapter;
 import com.example.chat.databinding.ActivitySignInBinding;
 import com.example.chat.databinding.ActivityUserBinding;
+import com.example.chat.lisnteners.UserListener;
 import com.example.chat.models.User;
 import com.example.chat.utilities.Constants;
 import com.example.chat.utilities.PreferenceManger;
@@ -24,9 +26,9 @@ import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class UserActivity extends AppCompatActivity {
+public class UserActivity extends AppCompatActivity implements UserListener {
 
-    private  ActivityUserBinding binding;
+    private ActivityUserBinding binding;
     private PreferenceManger preferenceManger;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +72,7 @@ public class UserActivity extends AppCompatActivity {
                             users.add(user);
                         }
                         if (users.size() >0 ){
-                            UsersAdapter usersAdapter = new UsersAdapter(users);
+                            UsersAdapter usersAdapter = new UsersAdapter(users , this);
                             binding.userRecyclerview.setAdapter(usersAdapter);
                             binding.userRecyclerview.setVisibility(View.VISIBLE);
                         }else {
@@ -88,5 +90,13 @@ public class UserActivity extends AppCompatActivity {
         }else {
             binding.progressBar.setVisibility(View.INVISIBLE);
         }
+    }
+
+    @Override
+    public void onUserClicked(User user) {
+        Intent i = new Intent(getApplicationContext(), ChatsActivity.class);
+        i.putExtra(Constants.KEY_USER, user);
+        startActivity(i);
+        finish();
     }
 }

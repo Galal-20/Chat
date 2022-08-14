@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_20sdp"
             android:text="@string/create_new_account"
-            android:textColor="@color/primary_text"
+            android:textColor="@color/black"
             android:textSize="@dimen/_18ssp"
             android:textStyle="bold"/>
 

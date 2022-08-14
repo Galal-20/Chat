@@ -17,6 +17,15 @@
         android:background="@drawable/background_content_top"
         android:layout_marginBottom="@dimen/_14sdp"
         />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/headerBackground"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/viewSupporter"
+        android:background="@color/primary"/>
+
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="@dimen/_30sdp"
         android:layout_height="@dimen/_30sdp"
@@ -29,6 +38,7 @@
         android:layout_marginLeft="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_12sdp"
         tools:ignore="RtlHardcoded"
+        android:tint="@color/white_dark"
         />
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="@dimen/_30sdp"
@@ -41,7 +51,8 @@
         android:layout_marginEnd="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_12sdp"
         android:padding="@dimen/_4sdp"
-        tools:ignore="RtlHardcoded" />
+        tools:ignore="RtlHardcoded"
+        android:tint="@color/white_dark"/>
 
     <TextView
         android:layout_width="0dp"
@@ -54,19 +65,26 @@
         android:gravity="center"
         android:ellipsize="end"
         android:maxLines="1"
-        android:textColor="@color/primary_text"
+        android:textColor="@color/white_dark"
         android:textSize="@dimen/_14ssp"
         android:textStyle="bold"
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_8sdp"
         />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/viewSupporter"
+        android:layout_marginTop="@dimen/_12sdp"
+        app:layout_constraintTop_toBottomOf="@id/imageBack"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:id="@+id/chatRecyclerview"
         android:clipToPadding="false"
-        app:layout_constraintTop_toBottomOf="@id/imageBack"
+        app:layout_constraintTop_toBottomOf="@id/viewSupporter"
         app:layout_constraintBottom_toBottomOf="@id/viewBackground"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:visibility="gone"
@@ -102,7 +120,7 @@
             android:layout_marginLeft="@dimen/_4sdp"
             android:layout_marginStart="@dimen/_4sdp"
             android:src="@drawable/ic_send"
-            android:tint="@color/white"
+            android:tint="@color/white_dark"
             android:padding="@dimen/_8sdp"
             />
     </FrameLayout>
@@ -115,7 +133,7 @@
         app:layout_constraintEnd_toStartOf="@id/layoutSend"
         app:layout_constraintStart_toStartOf="parent"
         android:inputType="text"
-        android:textColor="@color/white"
+        android:textColor="@color/white_dark"
         android:paddingStart="@dimen/_16sdp"
         tools:ignore="RtlSymmetry"
         android:paddingEnd="@dimen/_16sdp"
