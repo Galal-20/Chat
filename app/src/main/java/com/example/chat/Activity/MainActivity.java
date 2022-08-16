@@ -10,8 +10,10 @@ import android.util.Base64;
 import android.widget.Toast;
 
 import com.example.chat.R;
+import com.example.chat.adapter.RecentConversationAdapter;
 import com.example.chat.databinding.ActivityMainBinding;
 import com.example.chat.databinding.ActivitySignInBinding;
+import com.example.chat.models.ChatMessage;
 import com.example.chat.utilities.Constants;
 import com.example.chat.utilities.PreferenceManger;
 import com.google.android.material.bottomappbar.BottomAppBar;
@@ -22,12 +24,17 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private PreferenceManger preferenceManger;
+    private List<ChatMessage> conversations;
+    private RecentConversationAdapter conversationAdapter;
+    private FirebaseFirestore database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         preferenceManger = new PreferenceManger(getApplicationContext());
+        init();
         loadUserDetails();
         getToken();
         setListeners();
@@ -43,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
     private void showToast(String message){
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
+
+    private void init(){
+        conversations = new ArrayList<>();
+        conversationAdapter = new RecentConversationAdapter(conversations);
+        binding.conversationRecyclerView.setAdapter(conversationAdapter);
+        database = FirebaseFirestore.getInstance();
+    }
+
 
     private void setListeners(){
         binding.imageSignIn.setOnClickListener(v -> signOut());
