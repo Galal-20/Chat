@@ -1,16 +1,13 @@
 package com.example.chat.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.PerformanceHintManager;
-import android.preference.PreferenceManager;
 import android.util.Base64;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.chat.adapter.ChatAdapter;
 import com.example.chat.databinding.ActivityChatsBinding;
@@ -19,19 +16,14 @@ import com.example.chat.models.User;
 import com.example.chat.utilities.Constants;
 import com.example.chat.utilities.PreferenceManger;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firestore.v1.Value;
-
 import java.text.SimpleDateFormat;
-import java.time.DateTimeException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
