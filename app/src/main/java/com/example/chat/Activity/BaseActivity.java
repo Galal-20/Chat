@@ -13,7 +13,7 @@ public class BaseActivity extends AppCompatActivity {
     private DocumentReference documentReference;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         PreferenceManger preferenceManager = new PreferenceManger(getApplicationContext());
         FirebaseFirestore database = FirebaseFirestore.getInstance();

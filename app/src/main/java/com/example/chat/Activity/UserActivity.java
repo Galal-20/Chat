@@ -1,32 +1,20 @@
 package com.example.chat.Activity;
 
-import androidx.activity.OnBackPressedDispatcherOwner;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
-import com.example.chat.R;
 import com.example.chat.adapter.UsersAdapter;
-import com.example.chat.databinding.ActivitySignInBinding;
 import com.example.chat.databinding.ActivityUserBinding;
 import com.example.chat.lisnteners.UserListener;
 import com.example.chat.models.User;
 import com.example.chat.utilities.Constants;
 import com.example.chat.utilities.PreferenceManger;
-import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentHashMap;
 
-public class UserActivity extends AppCompatActivity implements UserListener {
+public class UserActivity extends BaseActivity implements UserListener {
 
     private ActivityUserBinding binding;
     private PreferenceManger preferenceManger;

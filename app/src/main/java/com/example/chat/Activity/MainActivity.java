@@ -1,7 +1,5 @@
 package com.example.chat.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,33 +7,26 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Toast;
-
-import com.example.chat.R;
 import com.example.chat.adapter.RecentConversationAdapter;
 import com.example.chat.databinding.ActivityMainBinding;
-import com.example.chat.databinding.ActivitySignInBinding;
 import com.example.chat.lisnteners.ConversionListener;
 import com.example.chat.models.ChatMessage;
 import com.example.chat.models.User;
 import com.example.chat.utilities.Constants;
 import com.example.chat.utilities.PreferenceManger;
-import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FieldPath;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.messaging.FirebaseMessaging;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity  implements ConversionListener {
+public class MainActivity extends BaseActivity implements ConversionListener {
 
     private ActivityMainBinding binding;
     private PreferenceManger preferenceManger;
@@ -140,6 +131,7 @@ public class MainActivity extends AppCompatActivity  implements ConversionListen
     }
 
     private void updateToken(String token){
+        preferenceManger.putString(Constants.KEY_FCM_TOKEN , token);
         FirebaseFirestore dataBase = FirebaseFirestore.getInstance();
         DocumentReference documentReference = dataBase.collection(Constants.KEY_COLLECTION_USERS).document(preferenceManger.getString(Constants.KEY_USER_ID));
         documentReference.update(Constants.KEY_FCM_TOKEN,token)
